@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+@{
+    ViewBag.Title = "Index";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>personal</title>
+    <link rel="stylesheet" href="~/Content/Site.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Personal</h1>
+    </header>
+    <nav>
+        <a class="active" href="/pages/contacto.html">Internet</a>
+        <a href="https://es.euronews.com/noticias/internacional">Tienda</a>
+        <a href="https://es.euronews.com/business">Portabilidad</a>
+        <a href="https://es.euronews.com/tag/politica-de-la-ue">Planes</a>
+        <a href="https://es.euronews.com/green">TV</a>
+    </nav>
+    <div class="container">
+        <div class="container">
+            <div id="descripcion">
+                <h2>
+                    Internet 100 MB + Flow Flex
+                    62% OFF por 6 meses*
+                    $15.089 final por mes
+                </h2>
+                <p><b>Internet 100 MB + Flow Flex</b></p>
+                <p>
+                    Por tener un servicio del hogar + una línea móvil de Personal,
+
+                    podés duplicar gratis los gigas de tu plan móvil
+                </p>
+                <p>Por tener un servicio del hogar + una línea móvil de Personal</p>
+                <p>
+                    Hasta $2.500 pagando desde la app o hasta $2.850 por débito automático, dependiendo del nivel que
+                    seas en Personal Pay
+                </p>
+            </div>
+        </div>
+        <div class="container">
+            <!-- <img src="assets/images.jpg" alt="combo familiar">  NO ES RESPONSIVE POR AHORA-->
+            <form>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Direccion de email" required> <br> <br>
+                <label for="email">Nombre:</label>
+                <input type="nombre" id="nombre" name="nombre" placeholder="Nombre" required>
+                <br>
+                <br>
+                <input type="radio" id="option1" name="options" value="option1">
+                <label for="option1">Opcion 1</label><br>
+
+                <input type="radio" id="option2" name="options" value="option2">
+                <label for="option2">Opcion 2</label><br>
+
+                <input type="radio" id="option3" name="options" value="option3">
+                <label for="option3">Opcion 3</label><br>
+                <br>
+                <button type="submit">Solicitar oferta</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        Copyright © Personal 2024
+    </footer>
+</body>
+</html>
