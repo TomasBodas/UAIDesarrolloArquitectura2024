@@ -11,6 +11,9 @@ namespace UAIDesarrolloArquitectura.Models
         public bool IsBlocked { get; set; }
         public int Attempts { get; set; }
         public string Password { get; set; }
-        
+        public int DNI { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+
     }
 }
