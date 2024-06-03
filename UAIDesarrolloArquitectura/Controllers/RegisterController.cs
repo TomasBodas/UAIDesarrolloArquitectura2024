@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+using DAL;
 
 namespace UAIDesarrolloArquitectura.Controllers
 {
@@ -23,14 +25,16 @@ namespace UAIDesarrolloArquitectura.Controllers
             }
             if (ModelState.IsValid)
             {
+                DAL_Usuarios dal_usuarios = new DAL_Usuarios();
+                dal_usuarios.RegisterUser(Name, Surname, DNI, Email, Password);
+                dal_usuarios.EventLog(DNI, DateTime.Now.ToString(), "Registro", "Se creó una cuenta");
                 // Your registration logic here, e.g., save to database, etc.
 
+
                 // On successful registration, redirect to another page
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Login");
             }
 
-
-            //message de creacion exitosa
             return View();
         }
     }
