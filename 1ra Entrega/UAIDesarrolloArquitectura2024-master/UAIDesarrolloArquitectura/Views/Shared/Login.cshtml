@@ -55,6 +55,21 @@
                 .login-container button:hover {
                     background-color: #0056b3;
                 }
+        .validation-error {
+            display: none;
+            color: red;
+            font-weight: bold;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size:15px;
+        }
+        .field-validation-error {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -73,8 +88,9 @@
             @Html.PasswordFor(m => m.Password, new { @placeholder = "Password", @required = "required" })
             @Html.ValidationMessageFor(m => m.Password)
         </div>
-        @Html.ActionLink("Registrarse", "Register", "Register")
+        @Html.ValidationMessage("MissingUser", new { @class = "validation-error" })
         <button type="submit">Iniciar Sesion</button>
+        @Html.ActionLink("Registrarse", "Register", "Register")
     </form>
 </div>}
 </body>

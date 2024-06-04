@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using DAL;
+using Services;
 
 namespace UAIDesarrolloArquitectura.Controllers
 {
@@ -26,7 +27,8 @@ namespace UAIDesarrolloArquitectura.Controllers
             if (ModelState.IsValid)
             {
                 DAL_Usuarios dal_usuarios = new DAL_Usuarios();
-                dal_usuarios.RegisterUser(Name, Surname, DNI, Email, Password);
+                string Hash = PasswordEncrypter.EncryptPassword(Password);
+                dal_usuarios.RegisterUser(Name, Surname, DNI, Email, Hash);
                 dal_usuarios.EventLog(DNI, DateTime.Now.ToString(), "Registro", "Se creó una cuenta");
                 // Your registration logic here, e.g., save to database, etc.
 
