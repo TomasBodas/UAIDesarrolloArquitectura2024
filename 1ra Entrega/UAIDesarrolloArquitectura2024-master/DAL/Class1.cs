@@ -12,9 +12,9 @@ namespace DAL
     {
         private SqlDataReader sqlReader;
 
-        public void RegisterUser(string Name, string Surname, int DNI, string Email, string Password)
+        public void RegisterUser(string Name, string Surname, int DNI, string Email, string HashPassword)
         {
-            string connectionString = "Data Source=DESKTOP-4OC5GG6\\SQLEXPRESS;Initial Catalog = Bersonal; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            string connectionString = "Data Source=.;Initial Catalog=Bersonal;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
@@ -27,7 +27,7 @@ namespace DAL
                         command.Parameters.AddWithValue("@Apellido", Surname);
                         command.Parameters.AddWithValue("@DNI", DNI);
                         command.Parameters.AddWithValue("@Email", Email);
-                        command.Parameters.AddWithValue("@Contraseña", Password);
+                        command.Parameters.AddWithValue("@Contraseña", HashPassword);
                         command.ExecuteNonQuery();
                     }
                 }
@@ -39,7 +39,7 @@ namespace DAL
         }
         public void EventLog(int DNI, string fecha, string modulo, string descripcion)
         {
-            string connectionString = "Data Source=DESKTOP-4OC5GG6\\SQLEXPRESS;Initial Catalog = Bersonal; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            string connectionString = "Data Source=.;Initial Catalog=Bersonal;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
@@ -78,7 +78,7 @@ namespace DAL
         {
             User user = null;
 
-            string connectionString = "Data Source=DESKTOP-4OC5GG6\\SQLEXPRESS;Initial Catalog = Bersonal; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            string connectionString = "Data Source=.;Initial Catalog=Bersonal;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -107,10 +107,10 @@ namespace DAL
             return user;
         }
 
-        public bool userPasswordMatcher(int pId, string inputPassword)
+        public bool userPasswordMatcher(string inputPassword, string Hash)
         {
-
-            return true;
+            if (inputPassword != Hash) return false;
+            else return true;
         }
     }
 }

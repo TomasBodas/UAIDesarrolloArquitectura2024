@@ -25,6 +25,7 @@ namespace Services
             if (UserInstance.getInstance().userIsLoggedIn())
             {
                 UserInstance.getInstance().user = null;
+
             }
             else
             {
