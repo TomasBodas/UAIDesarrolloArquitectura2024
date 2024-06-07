@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+@{
+    ViewBag.Title = "Plans";
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>personal</title>
+    <link rel="stylesheet" href="~/Content/Site.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="preheader">
+        @if (Services.SessionManager.IsLogged())
+        {
+            <a href="@Url.Action("Logout", "Home")">Cerrar Sesión</a>
+        }
+        else
+        {
+            <a href="@Url.Action("Login", "Login")">Iniciar Sesión</a>
+        }
+    </nav>
+    <header>
+        <h1>Personal</h1>
+    </header>
+    <nav>
+        <a href="@Url.Action("Index", "Home")">Internet</a>
+        <a href="https://es.euronews.com/noticias/internacional">Tienda</a>
+        <a href="https://es.euronews.com/business">Portabilidad</a>
+        <a href="#">Planes</a>
+        <a href="https://es.euronews.com/green">TV</a>
+    </nav>
+    <div class="container">
+        <h3>Elegí el mejor plan de Internet móvil</h3>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <span class="badge">Más vendido</span>
+                <h2 class="h2-plans">Móvil 3 GB</h2>
+                <p class="list-price">Precio de lista <span class="strikethrough">$21.500</span></p>
+                <p class="final-price">$8.600 <span>final por mes</span></p>
+            </div>
+            <button class="cta-button">¡Lo quiero!</button>
+            <p class="discount">60% OFF por 6 meses</p>
+            <ul class="features">
+                <li>Roaming: WhatsApp gratis + 2 GB extra en limítrofes y EE.UU</li>
+                <li>Enviá mensajes de WhatsApp sin consumir datos de tu plan</li>
+                <li>3 GB para navegar en tu celu</li>
+            </ul>
+            <a href="#" class="learn-more">Conocer más ></a>
+            <p class="footer-note">¡Incluye WhatsApp gratis y llamadas ilimitadas!</p>
+        </div>
+    </div>
+    <footer>
+        Copyright © Personal 2024
+    </footer>
+</body>
+</html>
