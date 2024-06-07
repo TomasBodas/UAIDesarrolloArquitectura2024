@@ -14,11 +14,6 @@ namespace UAIDesarrolloArquitectura.Controllers
 {
     public class LoginController : Controller
     {
-        public ActionResult Startup()
-        {
-            return View("Login");
-        }
-
         [HttpGet]
         public ActionResult Login()
         {
@@ -34,16 +29,14 @@ namespace UAIDesarrolloArquitectura.Controllers
                 {
                     User user;
                     DAL_Usuarios dalUser = new DAL_Usuarios();
-                    //Retrieves user from database
                     user = dalUser.findByEmail(model.Email);
                     string Hash = PasswordEncrypter.EncryptPassword(model.Password);
                     if (user != null)
                     {
-                        SessionManager sessionManager = new SessionManager();
                         if (dalUser.userPasswordMatcher(user.Password, Hash))
                         {
                             //Singleton setup
-                            sessionManager.login(user);
+                            SessionManager.login(user);
                             dalUser.EventLog(user.DNI, DateTime.Now.ToString(), "Inicio de sesión", "Se inició sesión");
                         }
                         else throw new Exception();

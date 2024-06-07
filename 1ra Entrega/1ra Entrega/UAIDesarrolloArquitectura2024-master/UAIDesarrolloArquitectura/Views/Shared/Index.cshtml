@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Services.Models
+<!DOCTYPE html>
 <html lang="es">
 @{
     ViewBag.Title = "Index";
@@ -16,7 +17,14 @@
 
 <body>
     <nav class="preheader">
-        <a href="@Url.Action("Logout", "Home")">Cerrar Sesión</a>
+        @if (Services.SessionManager.IsLogged())
+        {
+            <a href="@Url.Action("Logout", "Home")">Cerrar Sesión</a>
+        }
+        else
+        {
+            <a href="@Url.Action("Login", "Login")">Iniciar Sesión</a>
+        }
     </nav>
     <header>
         <h1>Personal</h1>
@@ -25,7 +33,7 @@
         <a class="active" href="/pages/contacto.html">Internet</a>
         <a href="https://es.euronews.com/noticias/internacional">Tienda</a>
         <a href="https://es.euronews.com/business">Portabilidad</a>
-        <a href="https://es.euronews.com/tag/politica-de-la-ue">Planes</a>
+        <a href="@Url.Action("Plans", "Home")">Planes</a>
         <a href="https://es.euronews.com/green">TV</a>
     </nav>
     <div class="container">
